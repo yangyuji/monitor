@@ -1,0 +1,414 @@
+﻿<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="../" class="navbar-brand">网络评析监控首页</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="col-lg-12">
+                    <select class="form-control" ng-model="server">
+                        <option ng-repeat="s in servers">{{ s }}</option>
+                    </select>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="">
+	<div class="container alert alert-warning" ng-show="error_msg != null" role="alert">{{error_msg}}</div>
+	
+	<h4 ng-show="fscnc_alarm.length > 0" class="text-info">信息大厦告警信息</h4>
+    <div ng-show="fscnc_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in fscnc_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="fstt_alarm.length > 0" class="text-info">佛山铁通告警信息</h4>
+    <div ng-show="fstt_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in fstt_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="zscnc1_alarm.length > 0" class="text-info">中山联通出口1告警信息</h4>
+    <div ng-show="zscnc1_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in zscnc1_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="zscnc2_alarm.length > 0" class="text-info">中山联通出口2告警信息</h4>
+    <div ng-show="zscnc2_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in zscnc2_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="zstl1_alarm.length > 0" class="text-info">中山东区出口1告警信息</h4>
+    <div ng-show="zstl1_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in zstl1_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="zstl2_alarm.length > 0" class="text-info">中山东区出口2告警信息</h4>
+    <div ng-show="zstl2_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in zstl2_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="sdtl_alarm.length > 0" class="text-info">顺德电信出口告警信息</h4>
+    <div ng-show="sdtl_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in sdtl_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="zqtl_alarm.length > 0" class="text-info">肇庆电信告警信息</h4>
+    <div ng-show="zqtl_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in zqtl_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+
+	<h4 ng-show="nbcnc_alarm.length > 0" class="text-info">宁波联通告警信息</h4>
+    <div ng-show="nbcnc_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in nbcnc_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="nbtl_alarm.length > 0" class="text-info">宁波庄市告警信息</h4>
+    <div ng-show="nbtl_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in nbtl_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="nbtl2_alarm.length > 0" class="text-info">宁波鄞州告警信息</h4>
+    <div ng-show="nbtl2_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in nbtl2_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+	<h4 ng-show="ecloud_alarm.length > 0" class="text-info">睿江云平台告警信息</h4>
+    <div ng-show="ecloud_alarm.length > 0" class="row" style="max-height:200px;overflow:auto;">
+        <table id="table" class="table table-bordered table-striped">
+			<thead class="alert-danger">
+            <th><span class="tip defaultTip">IP地址</span></th>
+			<th><span class="tip defaultTip">峰值包数</span></th>
+			<th><span class="tip defaultTip">峰值流量</span></th>
+			<th><span class="tip defaultTip">当前包数</span></th>
+			<th><span class="tip defaultTip">当前流量</span></th>
+			<th><span class="tip defaultTip">持续时间</span></th>
+			<th><span class="tip defaultTip">攻击时间</span></th>
+			<th><span class="tip defaultTip">攻击状态</span></th>
+			<th><span class="tip defaultTip">攻击类型</span></th>
+			</thead>
+            <tr ng-repeat="row in ecloud_alarm">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+	</div>
+	
+    <h4 class="text-info">各出口流量概览</h4>
+    <div class="row" style="margin:20px auto">
+        <div class="col-md-6">
+			<highchart id="fscnc" config="chartConfig_fscnc"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="fstt" config="chartConfig_fstt"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="zscnc1" config="chartConfig_zscnc1"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="zscnc2" config="chartConfig_zscnc2"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="zstl1" config="chartConfig_zstl1"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="zstl2" config="chartConfig_zstl2"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="sdtl" config="chartConfig_sdtl"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="zqtl" config="chartConfig_zqtl"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="nbcnc" config="chartConfig_nbcnc"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="nbtl" config="chartConfig_nbtl"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="nbtl2" config="chartConfig_nbtl2"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<highchart id="ecloud" config="chartConfig_ecloud"></highchart>
+			<div class="chart_opt">
+				<a href="javascript:void(0);">设置出口最大值</a>
+			</div>
+		</div>
+    </div>
+	
+    <!--h3 class="text-info">流量Top</h3>
+    <div class="row">
+		<div class="col-md-3">
+        <table id="table" class="table table-bordered table-striped">
+            <th><span class="tip defaultTip" title="used_cpu_user">IP地址</span></th>
+            <th><span class="tip defaultTip" title="used_cpu_system">当前流量</span></th>
+            <tr ng-repeat="row in tra_in">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+		</div>
+		<div class="col-md-3">
+		<table id="table" class="table table-bordered col-md-3 table-striped">
+            <th><span class="tip defaultTip" title="used_cpu_user">IP地址</span></th>
+            <th><span class="tip defaultTip" title="used_cpu_system">当前流量</span></th>
+            <tr ng-repeat="row in tra_out">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+		</div>
+		<div class="col-md-3">
+		<table id="table" class="table table-bordered col-md-3 table-striped">
+            <th><span class="tip defaultTip" title="used_cpu_user">IP地址</span></th>
+            <th><span class="tip defaultTip" title="used_cpu_system">当前流量</span></th>
+            <tr ng-repeat="row in num_in">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+		</div>
+		<div class="col-md-3">
+		<table id="table" class="table table-bordered col-md-3 table-striped">
+            <th><span class="tip defaultTip" title="used_cpu_user">IP地址</span></th>
+            <th><span class="tip defaultTip" title="used_cpu_system">当前流量</span></th>
+            <tr ng-repeat="row in num_out">
+                <td ng-repeat="td in row">
+                    {{ td }}
+                </td>
+            </tr>
+        </table>
+		</div>
+    </div-->
+
+</div>
+
+<script>
+        $(document).ready(function() {
+            $('.defaultTip').tooltip();
+        });
+</script>
