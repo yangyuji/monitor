@@ -52,7 +52,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-//uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -68,10 +67,11 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
+/*
+* error handlers
+*/
 
 // development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -81,9 +81,7 @@ if (app.get('env') === 'development') {
     });
   });
 }
-
 // production error handler
-// no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -91,42 +89,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-//定时器，获取流量数据
-var http_get = function(host, option, callback){
-	var ret = {}; 
-	var http = require('http');  
-	var qs = require('querystring');  
-	var data = option;
-	/*{  
-		name: 'fscnc',  
-		type: 'top' 
-	};//这是需要提交的数据  */
-	var content = qs.stringify(data);  
-	  
-	var options = {  
-		hostname: host,  
-		port: 80,  
-		path: '/detect.php?' + content,  
-		method: 'GET'  
-	};  
-	  
-	var req = http.request(options, function (res) {  
-		//console.log('STATUS: ' + res.statusCode);  
-		//console.log('HEADERS: ' + JSON.stringify(res.headers));  
-		res.setEncoding('utf8');  
-		res.on('data', function (chunk) {  
-			//console.log('BODY: ' + chunk);  
-			callback(chunk);
-		});  
-	});  
-	  
-	req.on('error', function (e) {  
-		console.log('problem with request: ' + e.message);  
-	});  
-	  
-	req.end();  
-}
 
 module.exports = app;
 
