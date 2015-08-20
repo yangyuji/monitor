@@ -298,7 +298,7 @@ myApp.controller('MonitorCtl', function($scope, $routeParams, $filter, $sce, soc
     socket.on('disconnect', function() {
         $scope.error_msg = 'Oh! 服务已断开连接，请检查网络是否已经断开！';
     });
-	socket.on('message', function(msg) {
+	socket.on('msg', function(msg) {
 		//var ret = eval('(' + msg + ')');
 		//if(msg.type === "gen"){
 			//console.log(msg.data);

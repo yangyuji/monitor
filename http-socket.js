@@ -37,105 +37,11 @@ io.on('connection', function (socket) {
 
   setInterval(function(){
 	var params = {  
-		name: 'fscnc',  
-		type: 'top' 
+		name: 'name',  
+		type: 'type' 
 	};
-    http_get('120.31.133.101', params, function(obj){
-		socket.emit('top', obj);
-	});
-  },5000);
-  
-  setInterval(function(){
-	var params = {  
-		name: 'fscnc',  
-		type: 'gen' 
-	};
-    http_get('120.31.133.101', params, function(obj){
-		socket.emit('fscnc', { data: obj});
-	});
-	/*params = {  
-		name: 'fstt',  
-		type: 'gen' 
-	};
-    http_get('10.11.253.142', params, function(obj){
-		socket.emit('fstt', { data: obj});
-	});*/
-	
-	params = {  
-		name: 'zscnc1',  
-		type: 'gen' 
-	};
-    http_get('112.90.178.162', params, function(obj){
-		socket.emit('zscnc1', { data: obj});
-	});
-	params = {  
-		name: 'zscnc2',  
-		type: 'gen' 
-	};
-    http_get('112.90.178.162', params, function(obj){
-		socket.emit('zscnc2', { data: obj});
-	});
-
-	params = {  
-		name: 'zstl1',  
-		type: 'gen' 
-	};
-    http_get('121.201.99.181', params, function(obj){
-		socket.emit('zstl1', { data: obj});
-	});
-	params = {  
-		name: 'zstl2',  
-		type: 'gen' 
-	};
-    http_get('121.201.99.181', params, function(obj){
-		socket.emit('zstl2', { data: obj});
-	});
-	
-	params = {  
-		name: 'sdtl',  
-		type: 'gen' 
-	};
-    http_get('113.105.248.114', params, function(obj){
-		socket.emit('sdtl', { data: obj});
-	});
-	
-	params = {  
-		name: 'zqtl',  
-		type: 'gen' 
-	};
-    http_get('61.143.222.50', params, function(obj){
-		socket.emit('zqtl', { data: obj});
-	});
-	
-	params = {  
-		name: 'nbcnc',  
-		type: 'gen' 
-	};
-    http_get('101.71.88.171', params, function(obj){
-		socket.emit('nbcnc', { data: obj});
-	});
-	
-	params = {  
-		name: 'nbtl',  
-		type: 'gen' 
-	};
-    http_get('115.238.185.13', params, function(obj){
-		socket.emit('nbtl', { data: obj});
-	});
-	params = {  
-		name: 'nbtl2',  
-		type: 'gen' 
-	};
-    http_get('115.238.144.26', params, function(obj){
-		socket.emit('nbtl2', { data: obj});
-	});
-	
-	params = {  
-		name: 'ecloud',  
-		type: 'gen' 
-	};
-    http_get('121.201.60.70', params, function(obj){
-		socket.emit('ecloud', { data: obj});
+    http_get('localhost', params, function(obj){
+		socket.emit('msg', obj);
 	});
   },5000);
   

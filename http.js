@@ -33,7 +33,7 @@ io.on('connection', function (socket) {
   // 对message事件的监听
   socket.on('pingxi', function(msg){
 	  console.log(msg);
-	  socket.broadcast.emit('message', msg);
+	  socket.broadcast.emit('msg', msg);
   });
 
   //监听出退事件
